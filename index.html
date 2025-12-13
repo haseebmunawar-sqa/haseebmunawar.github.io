@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haseeb Munawar - Software Quality Assurance Engineer Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+        /* ------------------- Colors & Variables  ------------------- */
+        :root {
+            --primary-color: #581c87;      /* Dark Purple/Accent */
+            --secondary-color: #1f2937;    /* Dark Gray for text/headings */
+            --accent-color: #8b5cf6;       /* Lighter Purple/Violet for highlights */
+            --background-color: #ffffff;   /* White background */
+            --header-bg: #ffffff;
+            --text-light: #4b5563;
+            --border-color: #e5e7eb;
+            --box-bg: #f9fafb;             /* Lighter gray for tool boxes */
+            --contact-bg: #fffcf8;         /* Very Light, Warm Gray for Contact Section */
+        }
+
+        /* ------------------- Base Styling ------------------- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-light);
+            scroll-behavior: smooth; /* Ensure native smooth scrolling for general navigation */
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+        
+        /* ================================================== */
+        /* === 1. Dancing Button Animation (Fixed: Runs Infinite, Stronger Bounce) === */
+        /* ================================================== */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px); /* Increased bounce distance */
+            }
+            60% {
+                transform: translateY(-4px); /* Increased bounce distance */
+            }
+        }
+        
+        .bouncing-button {
+            /* Now runs infinitely to ensure it's noticed */
+            animation: bounce 2s infinite ease-in-out; 
+            display: inline-block; /* Essential for transform to work correctly on links */
+            /* Add box-shadow for visual weight during the bounce */
+            box-shadow: 0 4px 15px rgba(88, 28, 135, 0.4); 
+        }
+
+        /* ------------------- New Header/Navigation Bar ------------------- */
+        #main-header {
+            background-color: var(--header-bg);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* ================================================== */
+        /* === 2. Active Link Highlighting CSS === */
+        /* ================================================== */
+        .nav-menu li a.active {
+            color: var(--accent-color);
+        }
+        
+        .nav-menu .contact-btn a {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-menu .contact-btn a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* ------------------- Content Container ------------------- */
+        #main-content {
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+        }
+        
+        /* ================================================== */
+        /* === 3. Eye-Catching Contact Heading Style === */
+        /* ================================================== */
+        #contact-section h2 {
+            font-size: 3rem; /* Make the heading bigger */
+            color: var(--primary-color);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        #contact-section h2::after {
+            content: '';
+            display: block;
+            width: 80px; /* Short underline */
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+
+        /* ------------------- Hero Section (Top) ------------------- */
+        #summary-section {
+            padding-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+        
+        .hero-text .title {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin: 0 0 20px;
+            line-height: 1.1;
+        }
+        .hero-text h1 strong {
+            color: var(--primary-color);
+        }
+
+        #profile-photo-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        #profile-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Profile Photo effect like Ezaaz */
+        #profile-photo-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-color) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0.15;
+        }
+
+
+        /* ------------------- Buttons ------------------- */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-start; /* Aligned left in Hero */
+        }
+        .btn {
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        /* Primary Button: Get In Touch (REVISED FOR BEAUTY) */
+        .btn-primary {
+            /* Use a gradient for a richer, more polished look */
+            background: linear-gradient(90deg, var(--primary-color) 0%, #a78bfa 100%);
+            color: var(--background-color);
+            padding: 14px 30px; /* Slightly larger padding */
+            font-size: 1.05rem; /* Slightly larger text */
+            font-weight: 700;
+            border: 2px solid transparent;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-color); 
+            /* Darken the gradient on hover */
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            /* Stronger shadow on hover */
+            box-shadow: 0 6px 20px rgba(88, 28, 135, 0.6); 
+            transform: translateY(-2px);
+        }
+
+        /* Secondary Button: My Resume */
+        .btn-secondary {
+            background-color: var(--box-bg);
+            color: var(--secondary-color);
+            border: 2px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-color); 
+            color: var(--accent-color);
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ------------------- About Section ------------------- */
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+            margin-top: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stat-item {
+            padding: 25px;
+            background: var(--box-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        .stat-item strong {
+            display: block;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .stat-item span {
+            font-size: 1.0rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* ------------------- Testing Expertise  ------------------- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .expertise-card {
+            padding: 30px;
+            background: var(--box-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .expertise-card:hover {
+            transform: translateY(-5px);
+        }
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .expertise-card i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        .expertise-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* ------------------- Tools & Technologies  ------------------- */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tool-card {
+            width: 150px;
+            padding: 20px 10px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .tool-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .tool-card span {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        /* Custom tool icons/images are harder to do with pure CSS, so using FontAwesome placeholders for now */
+
+
+        /* ------------------- Projects ------------------- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-tag {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .report-button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 0 0;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        .report-button:hover {
+            color: var(--accent-color);
+        }
+
+
+        /* ------------------- Contact Section ------------------- */
+        #contact-section {
+            /* Make the entire section stand out */
+            background-color: var(--contact-bg); 
+            padding-bottom: 80px; 
+        }
+
+        /* ================================================== */
+        /* === 4. Eye-Catching Contact Form Container === */
+        /* ================================================== */
+        #contact-form-container {
+            background: white; /* White background for the form itself */
+            padding: 40px;
+            border-radius: 12px; /* Slightly more rounded corners */
+            max-width: 650px; /* Slightly wider form */
+            margin: 0 auto;
+            /* Subtle glow effect */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-details li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-details li a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-details i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        /* ------------------- Contact Form Styling  ------------------- */
+        .form-group {
+            margin-bottom: 25px; /* Increased spacing */
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700; /* Bolder label text */
+            color: var(--secondary-color);
+            font-size: 1.05rem;
+        }
+
+        /* ================================================== */
+        /* === 5. Eye-Catching Input Fields (Focus Effect) === */
+        /* ================================================== */
+        #contact-form-container input[type="text"],
+        #contact-form-container input[type="email"],
+        #contact-form-container textarea {
+            width: 100%;
+            padding: 14px 12px; /* Increased padding */
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        #contact-form-container input[type="text"]:focus,
+        #contact-form-container input[type="email"]:focus,
+        #contact-form-container textarea:focus {
+            /* Stronger, more noticeable focus effect */
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.4); /* Larger glow */
+            background-color: #ffffff;
+        }
+        
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px; /* Slightly larger submit button */
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        /* ------------------- End Contact Form Styling ------------------- */
+
+
+        /* ------------------- NEW MODAL CSS ------------------- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7); /* Dark background */
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .modal-content {
+            background-color: var(--background-color);
+            margin: auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative; 
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Functional 'X' button positioned top-right */
+        .close-button {
+            color: var(--secondary-color);
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--accent-color);
+        }
+
+        .modal h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .modal h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .modal-section {
+            padding-left: 10px;
+        }
+
+        /* Style for Findings (4-5 points) */
+        .findings-list ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 0;
+        }
+
+        .findings-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Style for Key Documents Buttons (beautiful buttons) */
+        .key-documents-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-doc {
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s, opacity 0.2s;
+            text-align: center;
+        }
+
+        .btn-doc:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Specific button colors based on request */
+        .btn-doc.blue { background-color: #2563eb; } 
+        .btn-doc.orange { background-color: #f59e0b; } 
+        .btn-doc.green { background-color: #10b981; } 
+        .btn-doc.dark-grey { background-color: #374151; }
+        /* ------------------- END NEW MODAL CSS ------------------- */
+
+
+        /* ------------------- Media Queries ------------------- */
+        @media (max-width: 900px) {
+            #main-header { padding: 15px 20px; }
+            .logo { font-size: 1.2rem; }
+            .nav-menu { display: none; /* Hide navigation on small screens, can use a hamburger menu */ }
+
+            #main-content { padding: 0 20px; }
+            .content-section { padding: 40px 0; }
+            .content-section h2 { font-size: 2rem; margin-bottom: 30px; }
+            
+            #contact-section h2 { font-size: 2.5rem; } /* Adjusted for mobile */
+
+
+            #summary-section { flex-direction: column; text-align: center; }
+            .hero-text { max-width: 100%; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .btn-group { justify-content: center; margin-bottom: 30px; }
+            #profile-photo-container { margin-top: 30px; width: 200px; height: 200px; }
+
+            .stat-grid { grid-template-columns: 1fr; gap: 20px; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .project-grid { grid-template-columns: 1fr; }
+            .tool-card { width: 100px; }
+            
+            .contact-details { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="main-header">
+        <a href="#summary-section" class="logo">Haseeb Munawar</a>
+        <ul class="nav-menu">
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#skills-section">Skills</a></li>
+            <li><a href="#tools-section">Tools</a></li>
+            <li><a href="#projects-section">Projects</a></li>
+            <li class="contact-btn"><a href="#contact-section" class="bouncing-button">Contact</a></li>
+        </ul>
+    </header>
+
+    <div id="main-content">
+        
+        <section id="summary-section" class="content-section" style="border-bottom: none; padding-bottom: 50px;">
+            <div class="hero-text animate-item">
+                <p class="title">Senior Software Quality Assurance Engineer</p>
+                <h1>Hi, I'm <strong>Haseeb Munawar</strong></h1>
+                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+                    With over 3 years of professional experience in Quality Assurance, I bring a detail-oriented and analytical approach to every project. I am dedicated to maintaining the highest standards of quality throughout the entire Software Development Lifecycle (SDLC) by crafting comprehensive test plans and thoroughly documenting and reporting bugs.
+                </p>
+                
+                <div class="btn-group">
+                    <a href="#contact-section" class="btn btn-primary smooth-scroll bouncing-button">
+                        <i class="fas fa-comments"></i> Get In Touch
+                    </a>
+                    <a href="Haseeb%20SQAE_Resume.pdf" class="btn btn-secondary" download="Haseeb_Munawar_Resume.pdf">
+                        <i class="fas fa-file-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+            
+            <div id="profile-photo-container" class="animate-item">
+                <img 
+                    id="profile-photo" 
+                    src="images/profile.jpg (1).jpeg" 
+                    alt="Haseeb Munawar Profile"
+                >
+            </div>
+        </section>
+
+
+        <section id="about-section" class="content-section">
+            <h2>About Me</h2>
+            <div id="about-content" class="animate-item">
+                <p class="about-content">
+    <h2 style="color: var(--primary-color); margin-bottom: 5px;">
+        The Complete QA Solution, Get Everything Under One Roof
+    </h2> 
+    <h4 id="about-text-content" style="font-weight: normal; line-height: 1.7;"> 
+    Hi folks! I'm a detail-oriented Software Quality Assurance Engineer with over 3 years of experience in both manual and automation testing for web, mobile, and desktop applications. My core technical expertise covers the full quality spectrum: API validation with Postman, precise database checks using PostgreSQL, and in-depth network analysis. I have successfully applied these skills across diverse project domains, including SaaS, CRM systems, and Cloud infrastructure, ensuring data integrity and seamless end-to-end functionality.
+    <br><br>
+    My focus on quality is proven by measurable results: I have designed and executed over 2000 test cases, which directly led to a significant 70% reduction in post-release defects. I am a collaborative team player in Agile environments, committed to delivering high-quality releases. Furthermore, I currently develop and maintain robust automation frameworks using Playwright with JavaScript, showcasing my commitment to continuous growth and modern QA methodologies.
+</h4>
+</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <strong>70%</strong>
+                        <span>Defect Reduction</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>3+</strong>
+                        <span>Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>10+</strong>
+                        <span>Projects Tested</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills-section" class="content-section">
+            <h2>Testing Expertise</h2>
+            
+            <div class="expertise-grid animate-item">
+                
+                <div class="expertise-card">
+                    <h3><i class="fas fa-hand-paper"></i> Manual Testing</h3>
+                    <p>Proficient in planning, designing, and executing comprehensive manual tests (functional, UI/UX, system) across the full Agile SDLC and STLC.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3><i class="fas fa-robot"></i> Automation Testing</h3>
+                    <p>Hands-on experience developing and maintaining robust end-to-end test suites using Playwright with JavaScript for continuous integration.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3><i class="fas fa-cogs"></i> API Testing</h3>
+                    <p>Expert in validating RESTful APIs and microservices using Postman to ensure data contracts, performance, and security requirements are met.</p>
+                </div>
+
+                <div class="expertise-card">
+                    <h3><i class="fas fa-database"></i> Database Testing</h3>
+                    <p>Skilled in writing and executing SQL and PostgreSQL queries to verify data integrity, consistency, and storage logic in the backend.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3><i class="fas fa-tachometer-alt"></i> Load Testing</h3>
+                    <p>Experience using tools like JMeter to simulate user load, identify performance bottlenecks, and ensure application scalability under stress.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Web/Mobile/Desktop Apps</h3>
+                    <p>Proven track record of testing applications across diverse platforms (Chrome, Firefox, iOS, Android, Windows) to guarantee cross-compatibility.</p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section id="tools-section" class="content-section">
+            <h2>Tools & Technologies</h2>
+            
+            <div class="tools-grid animate-item">
+                
+                <div class="tool-card">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Playwright with JS</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-github"></i>
+                    <span>Git / GitHub</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Postman</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-database"></i>
+                    <span>SQL & PostgreSQL</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-burn"></i>
+                    <span>JMeter</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>REST APIs, JSON</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-table"></i>
+                    <span>DBeaver</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Test Plan/Cases</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-bug"></i>
+                    <span>Bug Tracking</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-tasks"></i>
+                    <span>Agile (Scrum, Kanban)</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>JIRA/ClickUp/Trello</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-terminal"></i>
+                    <span>DevTools</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects-section" class="content-section">
+            <h2>Key Projects & Case Studies</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light); text-align: center;">Showcasing my experience in test design, test plan, bug report, automation, and validation across various product types.</p>
+
+            <div class="project-grid">
+                
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Web App & Automation</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">SaaS Web App</h3>
+                        <p style="font-size: 0.95rem;">A web app for managing licenses, tracking software/hardware, and ensuring compliance.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Tested licenses and compliance of software and performed database testing to make sure the integrity and accuracy. Automated end-to-end test scripts using Playwright with JavaScript.</p>
+                    </div>
+                    <button class="report-button" onclick="openModal('SaaS Web App')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>   
+                </div>
+
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Desktop App</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">System Reporting Agent</h3>
+                        <p style="font-size: 0.95rem;">Desktop agent for hardware/software asset management and detailed report generation.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Validated reports and data integrity to ensure accurate asset monitoring.</p>
+                    </div>
+                    <button class="report-button" onclick="openModal('System Reporting Agent')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Cloud & Desktop App</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">Cloud Reporting - Agent</h3>
+                        <p style="font-size: 0.95rem;">Desktop app for managing cloud resources (AWS, Adobe, ServiceNow, Microsoft, Azure, etc) and detailed infrastructure report generation.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Tested report generation and validated data accuracy for cloud resource tracking.</p>
+                    </div>
+                    <button class="report-button" onclick="openModal('Cloud Reporting - Agent')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Web App</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">Property Management</h3>
+                        <p style="font-size: 0.95rem;">Web app handling rentals, tenant management, and payments.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Tested complex leasing workflows and rent calculation logic. Performed API validation using Postman. </p>
+                    </div>
+                    <button class="report-button" onclick="openModal('Property Management')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Web App (CRM)</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">Customer Relationship Management (CRM)</h3>
+                        <p style="font-size: 0.95rem;">System for managing customer interactions, sales, and support processes.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Tested complex sales workflows and validated data accuracy across modules.</p>
+                    </div>
+                    <button class="report-button" onclick="openModal('Customer Relationship Management (CRM)')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="project-card animate-item">
+                    <div>
+                        <span class="project-tag">Web App (Logistics)</span>
+                        <h3 style="color: var(--secondary-color); margin-top: 0; font-size: 1.15rem;">ArtiCheck</h3>
+                        <p style="font-size: 0.95rem;">Digital condition reporting workflows for art handling and logistics.</p>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Highlight: Validated precise reporting fields and data capture under various conditions.</p>
+                    </div>
+                    <button class="report-button" onclick="openModal('ArtiCheck')">
+                        View Test Report <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact-section" class="content-section">
+            <h2>Get In Touch</h2>
+            <div id="contact-form-container" class="animate-item">
+                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; text-align: center; color: var(--secondary-color); font-weight: 500;">
+Looking to integrate full-stack QA expertise into your project? Reach out directly or send a message below to start the conversation.
+                </p>
+                
+                <ul class="contact-details">
+                    <li>
+                        <a href="mailto:sqaengineer.haseeb@gmail.com">
+                            <i class="fas fa-envelope"></i> sqaengineer.haseeb@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+923177281212">
+                            <i class="fas fa-phone"></i> +923177281212
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://www.linkedin.com/in/haseeb-munawar" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://freelancerprofilenuxt.mesh.prod.platform.usw2.upwork/freelancers/~01c9d17fd386569018?mp_source=share" target="_blank">
+                            <i class="fas fa-briefcase"></i> Upwork
+                        </a>
+                    </li>
+                </ul>
+
+                <form action="https://formspree.io/f/xnnelnpe" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" required>
+                    </div>
+                    <input type="hidden" name="_replyto" id="_replyto" value="" />
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                    
+                    <input type="hidden" name="_next" value="thankyou.html" />
+                </form>
+            </div>
+        </section>
+
+
+        <footer style="text-align: center; padding: 20px 0; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid var(--border-color);">
+            <p style="margin: 0;">© 2025-2026 Haseeb Munawar. All rights reserved. | Software Quality Assurance Engineer Portfolio.</p>
+        </footer>
+
+    </div>
+    
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            
+            <h2 id="modalTitle" style="color: var(--primary-color);">Test Report: Project Name</h2>
+
+            <h3>Project Objectives</h3>
+            <div id="modalObjective" class="modal-section objective-text">
+                </div>
+
+            <h3>Key Findings & Contributions</h3>
+            <div id="modalFindings" class="modal-section findings-list">
+                </div>
+
+            <h3>Key Documents</h3>
+            <div id="modalKeyDocs" class="modal-section key-docs">
+                </div>
+        </div>
+    </div>
+
+
+    <script>
+        // ----------------------------------------------------
+        // 1. Animation Fix (Using Viewport-based IntersectionObserver)
+        // ----------------------------------------------------
+        const items = document.querySelectorAll('.animate-item');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            root: null,
+            threshold: 0.1
+        }); 
+
+        items.forEach(item => {
+            item.style.animationPlayState = 'paused';
+            observer.observe(item);
+        });
+
+        // ----------------------------------------------------
+        // 2. Smooth Scrolling (Updated for new single-column layout)
+        // ----------------------------------------------------
+        document.querySelectorAll('.smooth-scroll, .nav-menu a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Use native smooth scrolling for the window
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust for fixed header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // =================================================================
+        // === 3. Active Link Highlighting (REVISED LOGIC) ===
+        // =================================================================
+        const sections = document.querySelectorAll('.content-section');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            let currentActiveSectionId = '';
+            
+            // 1. Sort intersecting entries to prioritize the highest one in the viewport
+            // Filter only the entries that are currently intersecting
+            const intersecting = entries.filter(entry => entry.isIntersecting).sort((a, b) => {
+                // Sort by which element is closest to the top (smallest positive or largest negative top value)
+                return a.boundingClientRect.top - b.boundingClientRect.top;
+            });
+
+            if (intersecting.length > 0) {
+                // The first element in the sorted array is the highest one currently visible
+                currentActiveSectionId = intersecting[0].target.id;
+            }
+            
+            // Special check for the very top of the page: always highlight 'About'
+            // The Summary section is technically not in the nav, so the first link is 'About'
+            if (window.scrollY < 200) { 
+                currentActiveSectionId = 'about-section'; 
+            }
+            
+            // 2. Update the navigation links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkTargetId = link.getAttribute('href').substring(1);
+                
+                if (linkTargetId === currentActiveSectionId) {
+                    link.classList.add('active');
+                }
+            });
+            
+        }, {
+            root: null,
+            threshold: 0, // Check intersection at 0% visibility
+            // Defines the "active" viewport area: 
+            // -60px top margin (below the header) 
+            // -80% bottom margin (only the top 20% of the screen is the target area)
+            rootMargin: "-60px 0px -80% 0px" 
+        });
+
+        // Observe all content sections
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // ----------------------------------------------------
+        // 4. Modal (Popup) Logic (REVISED)
+        // ----------------------------------------------------
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalObjective = document.getElementById("modalObjective");
+        const modalFindings = document.getElementById("modalFindings");
+        const modalKeyDocs = document.getElementById("modalKeyDocs");
+
+
+        // --- NEW STRUCTURE FOR PROJECT DETAILS ---
+        const projectDetails = {
+            // 1. SaaS Web App (Xupervisor)
+            "SaaS Web App": {
+                objective: [
+                    "Objective: Ensure compliance integrity and seamless data transfer for enterprise license management (Project Xupervisor).",
+                    "Validated all critical asset assignment, user authentication, and core reporting functions."
+                ],
+                findings: [
+                    "Critical usability bug: Non-functional Close (X) button on the modal (Now fixed and repositioned to top-right).",
+                    "Identified and resolved a concurrency bug that allowed license over-assignment (e.g., Usage 2/1).",
+                    "Validated Role-Based Access Controls (RBAC) across all administrative configuration views.",
+                    "Improved report generation performance by 30% for large datasets using asynchronous processing."
+                ],
+                keyDocs: `
+                    <div class="key-documents-buttons">
+                        <a href="[REPLACE_WITH_TEST_CASES_LINK]" class="btn-doc blue">Test Cases</a>
+                        <a href="[REPLACE_WITH_BUG_REPORT_LINK]" class="btn-doc orange">Bug Report</a>
+                        <a href="[REPLACE_WITH_TEST_PLAN_LINK]" class="btn-doc green">Test Plan</a>
+                        <a href="[REPLACE_WITH_TEST_SCRIPTS_LINK]" class="btn-doc dark-grey">Test Scripts</a>
+                    </div>
+                `
+            },
+
+            // 2. System Reporting Agent (Xearch Agent)
+            "System Reporting Agent": {
+                objective: [
+                    "Objective: Validate the stability, accurate data capture, and reliable synchronization of the local desktop agent (Project Xearch Agent).",
+                    "Ensured installation integrity and accurate hardware/software inventory reporting to the server."
+                ],
+                findings: [
+                    "Agent log showed sync conflicts when reporting asset changes; fixed bug in local conflict resolution logic.",
+                    "Confirmed accurate capture of complex metadata (CPU, RAM, OS version) on various endpoints.",
+                    "Validated successful silent installation and uninstallation on Windows 10/11 platforms.",
+                    "Ensured the agent correctly handled network interruptions during the data upload cycle."
+                ],
+                keyDocs: `
+                    `
+            },
+
+            // 3. Cloud Reporting - Agent (Xync Agent)
+            "Cloud Reporting - Agent": {
+                objective: [
+                    "Objective: Verify secure API connectivity and accurate parsing of complex cloud resource metadata from platforms like AWS and Azure (Project Xync Agent).",
+                    "Ensured reliability of the reporting frequency adherence based on defined business rules."
+                ],
+                findings: [
+                    "Critical flaw: API connection failures resulted in permanent data loss (no report queuing).",
+                    "Implemented an exponential back-off strategy with local storage queuing for data retention.",
+                    "Confirmed accurate parsing of complex metadata (e.g., EC2 instance types and security group rules).",
+                    "Validated secure credential handling and rotation logic for cloud service access."
+                ],
+                keyDocs: `
+                    <div class="key-documents-buttons">
+                        <a href="[REPLACE_WITH_REPORTING_SAMPLE_LINK]" class="btn-doc blue">Reporting Sample</a>
+                    </div>
+                `
+            },
+
+            // 4. Property Management
+            "Property Management": {
+                objective: [
+                    "Objective: Test the end-to-end Tenant Leasing Module, focusing on transactional integrity, PII security, and payment compliance.",
+                    "Validated the complex leasing workflow from initial application submission to final deposit payment."
+                ],
+                findings: [
+                    "Security vulnerability identified: deposit payment failures logged sensitive gateway error codes to console.",
+                    "Corrected logging to display only generic 'Transaction Failed' message for security compliance.",
+                    "Validated complex rent and fee calculation logic under various contract terms and discounts.",
+                    "Ensured secure handling, encryption, and deletion policies for uploaded PII (IDs, income proof)."
+                ],
+                keyDocs: `
+                    <div class="key-documents-buttons">
+                        <a href="[REPLACE_WITH_TEST_PLAN_SAMPLE_LINK]" class="btn-doc blue">Test Plan Sample</a>
+                    </div>
+                `
+            },
+
+            // 5. CRM
+            "Customer Relationship Management (CRM)": {
+                objective: [
+                    "Objective: Validate the sales pipeline data flow, integrity of customer interactions, and accuracy of custom reporting tools.",
+                    "Ensured seamless lead status transitions and correct calculation of sales metrics."
+                ],
+                findings: [
+                    "Logical bug discovered in the Sales Commission calculation: tax applied before base commission.",
+                    "Revised backend order of operations for commission logic to ensure accurate payout.",
+                    "Validated data flow consistency and integrity across multiple user roles (Sales, Manager, Admin).",
+                    "Confirmed accurate logging of customer interactions and activity timestamps within the timeline."
+                ],
+                keyDocs: `
+                    `
+            },
+
+            // 6. Articheck
+            "ArtiCheck": {
+                objective: [
+                    "Objective: Test the platform’s unique art image processing pipeline and the integrity of ownership metadata.",
+                    "Validated performance and security of the secure digital certification process for high-value assets."
+                ],
+                findings: [
+                    "Performance bottleneck identified: high-resolution image uploads were timing out frequently.",
+                    "Implemented a background job queue for asynchronous image processing, resolving timeouts.",
+                    "Validated the integrity and immutability of digital provenance and ownership history metadata.",
+                    "Confirmed successful integration with secure digital certificate generation APIs."
+                ],
+                keyDocs: `
+                    `
+            }
+        };
+
+        function openModal(projectName) {
+            const details = projectDetails[projectName];
+            
+            // Change the modal ID to projectModal to match the new HTML structure
+            modal.style.display = "flex";
+
+            if (!details) {
+                // Fallback for unexpected project name
+                modalTitle.textContent = `Test Report: ${projectName}`;
+                modalObjective.innerHTML = 'No data available.';
+                modalFindings.innerHTML = 'No findings available.';
+                modalKeyDocs.innerHTML = '';
+            } else {
+                // Set Title
+                modalTitle.textContent = `Test Report: ${projectName}`;
+                
+                // Set Objective (2 lines)
+                modalObjective.innerHTML = `
+                    <p>${details.objective[0]}</p>
+                    <p>${details.objective[1]}</p>
+                `;
+                
+                // Set Findings (4-5 points)
+                modalFindings.innerHTML = '<ul>' + details.findings.map(f => `<li>${f}</li>`).join('') + '</ul>';
+
+                // Set Key Documents
+                modalKeyDocs.innerHTML = details.keyDocs;
+            }
+            
+            // Display Modal
+            modal.style.display = "flex";
+        }
+
+        // Function tied to the 'X' button and background click
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
